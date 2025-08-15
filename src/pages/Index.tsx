@@ -1,5 +1,7 @@
 import { Header } from "@/components/Header";
 import { ChatInterface } from "@/components/ChatInterface";
+import { SettingsSection } from "@/components/SettingsSection";
+import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Users, MessageSquare, Zap, Star, Code, Heart } from "lucide-react";
 
@@ -62,6 +64,9 @@ const Index = () => {
           </Badge>
         </div>
 
+        {/* Settings Section */}
+        <SettingsSection />
+
         {/* Chat Interface */}
         <div className="max-w-4xl mx-auto">
           <div className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-8 shadow-2xl">
@@ -73,6 +78,8 @@ const Index = () => {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
