@@ -22,8 +22,8 @@ interface ChatPartner {
 
 const chatPartners: ChatPartner[] = [
   { id: "bot", name: "AI Assistant", avatar: "🤖", isBot: true },
-  { id: "hitish", name: "Hitish", avatar: "👨‍💻", isBot: false },
-  { id: "piyush", name: "Piyush", avatar: "👨‍🔬", isBot: false },
+  { id: "nodejs", name: "Node.js Course", avatar: "📚", isBot: true },
+  { id: "python", name: "Python Course", avatar: "🐍", isBot: true },
 ];
 
 const botResponses = [
@@ -103,9 +103,9 @@ export function ChatInterface() {
       setMessages([
         {
           id: "1",
-          text: partner.isBot 
+          text: partner.id === "bot" 
             ? "Hello! I'm your AI assistant. How can I help you today?"
-            : `Hey! You're now chatting with ${partner.name}. Start the conversation!`,
+            : `Hello! I'm your ${partner.name} assistant. Ask me anything about the course content!`,
           sender: "bot",
           timestamp: new Date(),
         },
@@ -125,7 +125,7 @@ export function ChatInterface() {
                 Chat with {currentPartner.name}
               </h1>
               <p className="text-sm text-muted-foreground">
-                {currentPartner.isBot ? "AI Assistant" : "Online"}
+                {currentPartner.id === "bot" ? "AI Assistant" : "Course Assistant"}
               </p>
             </div>
           </div>
@@ -140,9 +140,7 @@ export function ChatInterface() {
                   <div className="flex items-center gap-2">
                     <span>{partner.avatar}</span>
                     <span>{partner.name}</span>
-                    {partner.isBot && (
-                      <Bot className="h-3 w-3 text-primary" />
-                    )}
+                    <Bot className="h-3 w-3 text-primary" />
                   </div>
                 </SelectItem>
               ))}
